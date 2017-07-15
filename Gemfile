@@ -8,8 +8,7 @@ end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.2'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
@@ -32,15 +31,17 @@ gem 'jbuilder', '~> 2.5'
 gem 'twitter', '~>6.1.0'
 gem 'figaro', '~>1.1.1'
 gem 'countries', '~>2.0.8'
-gem 'chartkick'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'factory_girl_rails'
+  gem 'factory_girl_rails', '~> 4.8.0'
   gem 'rspec-rails', '~> 3.5'
+  gem 'webmock', '~> 3.0.1'
+  gem 'vcr', '~>3.0.3'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'pry-rails', '~> 0.3.5'
 end
 
 group :development do
