@@ -1,2 +1,24 @@
-<h1>Dashboard#index</h1>
-<p>Find me in app/views/dashboard/index.html.erb</p>
+<section>
+  <h1 class="text-center">HashPlace</h1>
+  <section class="row">
+    <h2 class="text-center">Check europe for the particular hash</h2>
+    <div class="col-sm-12 col-md-4 col-md-offset-3">
+      <%= form_for :search, url: dashboard_twitter_search_path, remote: true do |f| %>
+          <div class="form-group">
+            <%= f.text_field :hash, class: 'form-control', placeholder: 'Hashtag you want to check', value: '#trump' %>
+          </div>
+          </div>
+          <div class="col-sm-12 col-md-2">
+            <%= f.submit :Search, class: 'btn btn-primary' %>
+          </div>
+      <% end %>
+      </section>
+  <section class="row">
+    <div class="col-sm-12">
+      <div id="geo-chart-container">
+      </div>
+    </div>
+    <div id="column-chart-container">
+    </div>
+  </section>
+</section>

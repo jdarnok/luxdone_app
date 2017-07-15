@@ -1,0 +1,18 @@
+<div class="col-sm-12 col-md-12">
+  <table class="table table-stripped">
+    <tr>
+      <th>Author</th>
+      <th>Tweet</th>
+    </tr>
+    <tr>
+      <td>asd</td>
+      <td>1</td>
+    </tr>
+    <% @tweets.each do |tweet| %>
+        <tr>
+          <td><%= tweet[0] %></td>
+          <td><%= tweet[1] %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>
