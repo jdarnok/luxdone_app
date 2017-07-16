@@ -12,6 +12,5 @@
 //
 //= require rails-ujs
 //= require jquery.min
-//= require chartkick
 //= require tether.min
-//= require_tree .
+//= require dashboard

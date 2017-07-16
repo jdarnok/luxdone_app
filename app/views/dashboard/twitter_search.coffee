@@ -1,5 +1,3 @@
-countries_table = <%= raw @tweets_array.to_json %>
-console.log countries_table
 chart = new (google.visualization.GeoChart)(document.getElementById('geo-chart-container'))
 data = google.visualization.arrayToDataTable([
   [
@@ -14,4 +12,3 @@ google.visualization.events.addListener chart, 'select', ->
   country = data.getValue(selectedItem.row, 0)
   search = $('#search_hash')[0].value.replace('#','')
   window.location.href = window.location.href + 'tweets/' + country + '?search=' + search
-  console.log country
