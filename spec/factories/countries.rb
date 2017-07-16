@@ -1,5 +1,7 @@
 FactoryGirl.define do
   factory :country do
+    name 'Some country'
+    twitter_id 'dsadsad213123'
     trait :poland do
       name 'Poland'
       twitter_id 'd9074951d5976bdf'

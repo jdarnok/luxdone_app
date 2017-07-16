@@ -4,10 +4,6 @@ describe Country do
       @country = create(:country, :poland)
     end
 
-    it 'has a valid factory' do
-      expect(@country).to be_valid
-    end
-
     it 'fetches #trump tweets from Poland' do
       search = '#trump'
       client = Twitter::REST::Client.new do |config|
@@ -31,13 +27,13 @@ describe Country do
   end
 
   describe 'with invalid data' do
-
     it 'does not allow duplicated name' do
       create(:country, :poland)
       country2 = build(:country, :poland)
       country2.save
       expect(country2.errors[:name].length).to eq(1)
     end
+
     it 'does not allow duplicated twitter_id' do
       create(:country, :poland)
       country2 = build(:country, :poland)
