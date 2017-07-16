@@ -17,13 +17,13 @@ countries_sliced.each do |sliced_array|
   sliced_array.each do |country|
     puts "adding #{country}\n"
     begin
-      begin
-        Country.create(twitter_id: client.geo_search(query: country).first.id, name: country)
-      rescue NoMethodError
-        next
+      Country.create(twitter_id: client.geo_search(query: country).first.id, name: country) unless Country.find_by(name: country)
+    rescue NoMethodError, Twitter::Error::TooManyRequests => e
+      next if e.class == NoMethodError
+      if e.class == Twitter::Error::TooManyRequests
+        puts 'too many requests'
+        sleep 901
       end
-    rescue Twitter::Error::TooManyRequests
-      sleep 901
     end
   end
 end
