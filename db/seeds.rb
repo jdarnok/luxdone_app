@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-countries = ISO3166::Country.all.collect { |c| c.name }
+countries = ISO3166::Country.find_all_countries_by_region('europe').collect { |c| c.name }
 countries_sliced = countries.each_slice(4).to_a
 client = Twitter::REST::Client.new do |config|
   config.consumer_key = ENV['CONSUMER_KEY']
